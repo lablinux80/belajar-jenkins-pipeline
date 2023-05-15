@@ -15,6 +15,11 @@ pipeline {
 
 		stage("Build") {
         	steps {
+        	    script{
+        	        for(int i = 0; i < 10; i++){
+        	            echo("script ${i}")
+        	        }
+        	    }
         	    echo ("Hello Build 1")
         	    sleep(5)
         	    echo ("Hello Build 2")
