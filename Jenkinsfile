@@ -19,22 +19,23 @@ pipeline {
 // 		timeout(time: 10, unit: "SECONDS")
 		timeout(time: 2, unit: "MINUTES")
 	}
-	stage("Parameter") {
-		agent {
-			node {
-				label "linux && java11"
-			}
-		}
-		steps{
-			echo "Hello ${params.NAME}"
-            echo "You Description is ${params.DESCRIPTION}"
-            echo "Need to deploy ${params.DEPLOY} to deploy!"
-            echo "Social Media ${params.SOCIAL_MEDIA}"
-            echo "Secret ${params.SECRET}"
-		}
-	}
 
 	stages {
+
+		stage("Parameter") {
+            agent {
+        		node {
+        	    	label "linux && java11"
+        		}
+        	}
+        	steps{
+        		echo "Hello ${params.NAME}"
+                echo "You Description is ${params.DESCRIPTION}"
+                echo "Need to deploy ${params.DEPLOY} to deploy!"
+                echo "Social Media ${params.SOCIAL_MEDIA}"
+                echo "Secret ${params.SECRET}"
+        	}
+        }
 
 		stage("Prepare") {
 
