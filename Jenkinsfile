@@ -9,6 +9,7 @@ pipeline {
 	stages {
 
 		stage("Prepare") {
+
 			environment {
 				APP = credentials("junius_rahasia")
 			}
