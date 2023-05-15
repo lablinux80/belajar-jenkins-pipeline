@@ -19,7 +19,7 @@ pipeline {
 // 		timeout(time: 10, unit: "SECONDS")
 		timeout(time: 2, unit: "MINUTES")
 	}
-	stages("Parameter") {
+	stage("Parameter") {
 		agent {
 			node {
 				label "linux && java11"
