@@ -3,6 +3,19 @@ pipeline {
 
 	stages {
 
+		stage("Prepare") {
+        	agent {
+           		node {
+           	        label "linux && java11"
+       		    }
+            }
+            steps {
+                echo("start Job : ${env.JOB_NAME}")
+                echo("start Job : ${env.BUILD_NUMBER}")
+                echo("start Job : ${env.BRANCH_NAME}")
+            }
+        }
+
 		stage("Hello") {
 			steps {
 				echo "Hello Pipeline"
@@ -30,6 +43,7 @@ pipeline {
         	    echo("Finish Build")
         	}
    		}
+
    		stage("Test") {
    		    agent {
                  node {
