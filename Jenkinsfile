@@ -27,7 +27,7 @@ pipeline {
                 echo("App User : ${APP_USR}")
                 echo("App Password : ${APP_PSW}")
                 sh("echo 'App Password : ${APP_PSW}' > 'rahasia.txt'")
-                sh('echo "App Password : ${APP_PSW}" > "rahasia2.txt"')
+                sh('echo "App Password : $APP_PSW" > "rahasia2.txt"')
             }
         }
 
