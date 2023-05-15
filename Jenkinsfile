@@ -41,6 +41,8 @@ pipeline {
         	            echo("script ${i}")
         	        }
         	    }
+        	    echo("Author ${AUTHOR}")
+                echo("Email ${EMAIL}")
         	    echo ("Hello Build 1")
         	    sleep(5)
         	    echo ("Hello Build 2")
@@ -66,6 +68,8 @@ pipeline {
                     ]
                     writeJSON(file: "data.json", json: data)
                 }
+                echo("Author ${AUTHOR}")
+                echo("Email ${EMAIL}")
            	    echo ("Hello Test 1")
            	    sleep(5)
            	    echo ("Hello Test 2")
