@@ -32,7 +32,7 @@ pipeline {
    		stage("Test") {
              steps {
                 script {
-                    def data [
+                    def data = [
                         "firstName": "Alaric",
                         "lastName": "Gwyneth"
                     ]
