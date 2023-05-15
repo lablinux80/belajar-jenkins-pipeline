@@ -1,5 +1,6 @@
 pipeline {
 	agent none
+
 	enviroment {
 		AUTHOR = "Alaric Gwyneth"
 		EMAIL = "alaric.gwyneth@gmail.com"
