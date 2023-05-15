@@ -25,11 +25,13 @@ pipeline {
 				label "linux && java11"
 			}
 		}
-		echo "Hello ${params.NAME}"
-        echo "You Description is ${params.DESCRIPTION}"
-        echo "Need to deploy ${params.DEPLOY} to deploy!"
-        echo "Social Media ${params.SOCIAL_MEDIA}"
-        echo "Secret ${params.SECRET}"
+		steps{
+			echo "Hello ${params.NAME}"
+            echo "You Description is ${params.DESCRIPTION}"
+            echo "Need to deploy ${params.DEPLOY} to deploy!"
+            echo "Social Media ${params.SOCIAL_MEDIA}"
+            echo "Secret ${params.SECRET}"
+		}
 	}
 
 	stages {
