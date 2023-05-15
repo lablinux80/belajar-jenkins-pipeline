@@ -31,6 +31,13 @@ pipeline {
    		}
    		stage("Test") {
              steps {
+                script {
+                    def data [
+                        "firstName": "Alaric",
+                        "lastName": "Gwyneth"
+                    ]
+                    writeJSON(file: "data.json", json: data)
+                }
            	    echo ("Hello Test 1")
            	    sleep(5)
            	    echo ("Hello Test 2")
