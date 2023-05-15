@@ -2,8 +2,8 @@ pipeline {
 	agent none
 
 	enviroment {
-		AUTHOR = "Alaric Gwyneth"
-		EMAIL = "alaric.gwyneth@gmail.com"
+	  AUTHOR = "Alaric Gwyneth"
+	  EMAIL = "alaric.gwyneth@gmail.com"
 	}
 
 	stages {
