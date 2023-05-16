@@ -129,20 +129,29 @@ pipeline {
                     choice(name: 'TARGET_ENV', choices: ['DEV', 'QA', 'PROD'], description: 'We will deploy')
                 }
             }
+
+            stage("Release") {
+                when {
+                    expression {
+                        return params.DEPLOY
+                    }
+                }
+            }
             agent {
                     node {
                         label 'linux && java11'
                     }
             }
             steps {
+                echo("Release it")
                 echo "Deploy to ${TARGET_ENV}"
-//                 echo('Hello Deploy 1')
-//                 sleep(5)
-//                 echo('Hello Deploy 2')
-//                 echo('Hello Deploy 3')
-//                 echo('Start Test')
-//                 sh('./mvnw test')
-//                 echo('Finish Test')
+                echo('Hello Deploy 1')
+                sleep(5)
+                echo('Hello Deploy 2')
+                echo('Hello Deploy 3')
+                echo('Start Test')
+                sh('./mvnw test')
+                echo('Finish Test')
             }
         }
     }
