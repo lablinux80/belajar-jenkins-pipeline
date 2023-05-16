@@ -74,7 +74,7 @@ pipeline {
         stage("Build") {
             agent {
                    node {
-                       label "linux && java11"
+                    label "linux && java11"
                    }
             }
             steps {
@@ -98,7 +98,7 @@ pipeline {
            stage("Test") {
                agent {
                  node {
-                       label "linux && java11"
+                    label "linux && java11"
                  }
                }
 
@@ -132,7 +132,7 @@ pipeline {
                 }
                 agent {
                     node {
-                    label "linux && java11"
+                        label "linux && java11"
                     }
                 }
                 steps {
@@ -146,20 +146,20 @@ pipeline {
                     echo("Finish Test")
                 }
             }
-	    }
-    post {
-        always {
-            echo "I will always say Hello again!"
         }
-        success {
-            echo "Yay, success"
+        post {
+            always {
+                echo "I will always say Hello again!"
+            }
+            success {
+                echo "Yay, success"
+            }
+            failure{
+                echo "Oh no,shit it is failure"
+            }
+            cleanup {
+                echo "Don't care success or error"
+            }
         }
-        failure{
-            echo "Oh no,shit it is failure"
-        }
-        cleanup {
-            echo "Don't care success or error"
-		}
     }
-}
 }
