@@ -145,7 +145,6 @@ pipeline {
                    sh("./mvnw test")
                 echo("Finish Test")
             }
-            }
         }
 
     post {
