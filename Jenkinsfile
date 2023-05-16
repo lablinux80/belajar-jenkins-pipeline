@@ -127,8 +127,8 @@ pipeline {
                 message "Can we deploy?"
                 ok "Yes, of course."
                 submitter "Alaric,Gwyneth"
-//                 parameters {
-//                     choice(name: "TARGET_ENV", choices: ["DEV", "QA", "PROD"], description: "We will deploy")
+                parameters {
+                    choice(name: "TARGET_ENV", choices: ["DEV", "QA", "PROD"], description: "We will deploy")
             }
             agent {
                    node {
@@ -136,7 +136,7 @@ pipeline {
                 }
             }
             steps {
-//                 echo "Deploy to ${TARGET_ENV}"
+                echo "Deploy to ${TARGET_ENV}"
                 echo ("Hello Deploy 1")
                 sleep(5)
                 echo ("Hello Deploy 2")
