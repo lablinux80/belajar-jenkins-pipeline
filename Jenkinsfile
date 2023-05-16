@@ -5,10 +5,10 @@ pipeline {
 		AUTHOR = "Alaric Gwyneth"
         EMAIL = "alaric.gwyneth@gmail.com"
 	}
-	triggers {
-// 		cron("*/5 * * * *")
-		pollSCM("*/5 * * * *")
-// 		upstream(upstreamProject: "job1,job2", threshold: hudson.model.result.SUCCESS)
+// 	triggers {
+//  		cron("*/5 * * * *")
+// 		pollSCM("*/5 * * * *")
+//  		upstream(upstreamProject: "job1,job2", threshold: hudson.model.result.SUCCESS)
 	}
 
 	parameters {
@@ -123,6 +123,15 @@ pipeline {
         }
 
         stage("Deploy") {
+            input {
+                message "Can we deploy?"
+                ok "Yes, of course."
+                submitter "Alaric,Gwyneth"
+                parameters {
+                    choice(name: "TARGET_ENV", choices: ["DEV", "QA", "PROD"], description: "We will deploy")
+                }
+            }
+
             agent {
            		node {
                    label "linux && java11"
