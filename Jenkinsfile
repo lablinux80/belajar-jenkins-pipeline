@@ -128,14 +128,13 @@ pipeline {
                     choice(name: 'TARGET_ENV', choices: ['DEV', 'QA', 'PROD'], description: 'We will deploy')
                 }
             }
-
-                stage("Release") {
-                    when {
-                        expression {
-                            return params.DEPLOY
-                        }
-                    }
+        stage("Release") {
+            when {
+                expression {
+                    return params.DEPLOY
                 }
+            }
+        }
             agent {
                     node {
                         label 'linux && java11'
