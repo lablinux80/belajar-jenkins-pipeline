@@ -130,9 +130,7 @@ pipeline {
                 submitter "Alaric,Gwyneth"
 //                 parameters {
 //                     choice(name: "TARGET_ENV", choices: ["DEV", "QA", "PROD"], description: "We will deploy")
-//                 }
             }
-
             agent {
            		node {
                    label "linux && java11"
