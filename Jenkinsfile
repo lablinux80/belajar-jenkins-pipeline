@@ -123,6 +123,7 @@ pipeline {
         }
 
         stage("Deploy") {
+
             input {
                 message "Can we deploy?"
                 ok "Yes, of course."
@@ -137,8 +138,8 @@ pipeline {
                    label "linux && java11"
                 }
             }
-
 			steps {
+				echo "Deploy to ${TARGET_ENV}"
 				echo ("Hello Deploy 1")
 				sleep(5)
 				echo ("Hello Deploy 2")
