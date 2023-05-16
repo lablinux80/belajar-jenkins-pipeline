@@ -128,17 +128,10 @@ pipeline {
                     choice(name: 'TARGET_ENV', choices: ['DEV', 'QA', 'PROD'], description: 'We will deploy')
                 }
             }
-        stage("Release") {
-            when {
-                expression {
-                    return params.DEPLOY
-                }
-            }
-        }
             agent {
-                    node {
-                        label 'linux && java11'
-                    }
+                node {
+                    label 'linux && java11'
+                }
             }
             steps {
                 echo("Release it")
@@ -152,7 +145,22 @@ pipeline {
                 echo('Finish Test')
             }
         }
-    }
+        stage("Release") {
+            when {
+                expression {
+                    return params.DEPLOY
+                }
+            }
+            agent {
+                node {
+                    label "linux && java11"
+                }
+            }
+            steps {
+                echo("Release it")
+            }
+        }
+        }
 
     post {
             always {
