@@ -1,4 +1,3 @@
-/* groovylint-disable DuplicateStringLiteral, NestedBlockDepth */
 pipeline {
     agent none
 
@@ -130,13 +129,13 @@ pipeline {
                 }
             }
 
-        stage("Release") {
-            when {
-                expression {
-                    return params.DEPLOY
+            stage("Release") {
+                when {
+                    expression {
+                        return params.DEPLOY
+                    }
                 }
             }
-        }
             agent {
                     node {
                         label 'linux && java11'
