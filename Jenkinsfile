@@ -96,32 +96,32 @@ pipeline {
             }
         }
 
-            stage('Test') {
-                agent {
-                    node {
-                        label 'linux && java11'
-                    }
+        stage('Test') {
+            agent {
+                node {
+                    label 'linux && java11'
                 }
+            }
 
             steps {
                 script {
                     def data = [
-                        'firstName': 'Alaric',
-                        'lastName': 'Gwyneth'
-                    ]
+                    'firstName': 'Alaric',
+                    'lastName': 'Gwyneth'
+                ]
                     writeJSON(file: 'data.json', json: data)
                 }
-                    echo("Author ${AUTHOR}")
-                    echo("Email ${EMAIL}")
-                    echo('Hello Test 1')
-                    sleep(5)
-                    echo('Hello Test 2')
-                    echo('Hello Test 3')
-                    echo('Start Test')
-                    sh('./mvnw test')
-                    echo('Finish Test')
+                echo("Author ${AUTHOR}")
+                echo("Email ${EMAIL}")
+                echo('Hello Test 1')
+                sleep(5)
+                echo('Hello Test 2')
+                echo('Hello Test 3')
+                echo('Start Test')
+                sh('./mvnw test')
+                echo('Finish Test')
             }
-            }
+        }
 
         stage('Deploy') {
                 input {
