@@ -21,7 +21,7 @@ pipeline {
 
     options {
         disableConcurrentBuilds()
-//         timeout(time: 10, unit: "SECONDS")
+        //         timeout(time: 10, unit: "SECONDS")
         timeout(time: 2, unit: "MINUTES")
     }
 
@@ -76,7 +76,7 @@ pipeline {
                    node {
                        label "linux && java11"
                    }
-               }
+            }
             steps {
                 script{
                     for(int i = 0; i < 10; i++){
@@ -93,14 +93,14 @@ pipeline {
                 sh("./mvnw clean compile test-compile")
                 echo("Finish Build")
             }
-           }
+        }
 
            stage("Test") {
                agent {
                  node {
                        label "linux && java11"
-                    }
-            }
+                 }
+               }
 
              steps {
                 script {
@@ -119,8 +119,8 @@ pipeline {
                 echo("Start Test")
                 sh("./mvnw test")
                 echo("Finish Test")
-               }
-        }
+             }
+           }
 
         stage("Deploy") {
             input {
@@ -129,11 +129,11 @@ pipeline {
                 submitter "Alaric,Gwyneth"
                 parameters {
                     choice(name: "TARGET_ENV", choices: ["DEV", "QA", "PROD"], description: "We will deploy")
-            }
+                }
             agent {
                    node {
                    label "linux && java11"
-                }
+                   }
             }
             steps {
                 echo "Deploy to ${TARGET_ENV}"
@@ -145,9 +145,8 @@ pipeline {
                    sh("./mvnw test")
                 echo("Finish Test")
             }
+            }
         }
-
-    }
 
     post {
         always {
