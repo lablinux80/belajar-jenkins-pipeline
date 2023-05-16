@@ -136,13 +136,13 @@ pipeline {
             }
             steps {
                 echo "Deploy to ${TARGET_ENV}"
-                echo('Hello Deploy 1')
-                sleep(5)
-                echo('Hello Deploy 2')
-                echo('Hello Deploy 3')
-                echo('Start Test')
-                sh('./mvnw test')
-                echo('Finish Test')
+//                 echo('Hello Deploy 1')
+//                 sleep(5)
+//                 echo('Hello Deploy 2')
+//                 echo('Hello Deploy 3')
+//                 echo('Start Test')
+//                 sh('./mvnw test')
+//                 echo('Finish Test')
             }
         }
     }
