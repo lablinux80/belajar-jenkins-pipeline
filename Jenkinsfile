@@ -160,6 +160,6 @@ pipeline {
         }
         cleanup {
             echo "Don't care success or error"
-        }
+		}
     }
 }
