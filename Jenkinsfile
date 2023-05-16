@@ -27,7 +27,6 @@ pipeline {
     }
 
     stages {
-
         stage('Parameter') {
             agent {
                 node {
@@ -44,7 +43,6 @@ pipeline {
         }
 
         stage('Prepare') {
-
             environment {
                 APP = credentials('junius_rahasia')
             }
@@ -124,13 +122,13 @@ pipeline {
         }
 
         stage('Deploy') {
-                input {
-                    message 'Can we deploy?'
-                    ok 'Yes, of course.'
-                    submitter 'Alaric,Gwyneth'
-                    parameters {
-                        choice(name: 'TARGET_ENV', choices: ['DEV', 'QA', 'PROD'], description: 'We will deploy')
-                    }
+            input {
+                message 'Can we deploy?'
+                ok 'Yes, of course.'
+                submitter 'Alaric,Gwyneth'
+                parameters {
+                    choice(name: 'TARGET_ENV', choices: ['DEV', 'QA', 'PROD'], description: 'We will deploy')
+                }
                 agent {
                     node {
                         label 'linux && java11'
@@ -146,7 +144,7 @@ pipeline {
                     sh('./mvnw test')
                     echo('Finish Test')
                 }
-                }
+            }
         }
         post {
             always {
