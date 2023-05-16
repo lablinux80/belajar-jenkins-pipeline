@@ -5,11 +5,11 @@ pipeline {
         AUTHOR = "Alaric Gwyneth"
         EMAIL = "alaric.gwyneth@gmail.com"
     }
-//     triggers {
-//          cron("*/5 * * * *")
-//         pollSCM("*/5 * * * *")
-//          upstream(upstreamProject: "job1,job2", threshold: hudson.model.result.SUCCESS)
-    }
+    // triggers {
+    //      cron("*/5 * * * *")
+    //     pollSCM("*/5 * * * *")
+    //      upstream(upstreamProject: "job1,job2", threshold: hudson.model.result.SUCCESS)
+    // }
 
     parameters {
         string(name: "NAME", defaultValue: "Guest", description: "What is your name?")
@@ -163,3 +163,4 @@ pipeline {
             echo "Don't care success or error"
         }
     }
+}
