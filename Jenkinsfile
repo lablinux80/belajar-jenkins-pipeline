@@ -45,8 +45,10 @@ pipeline {
                             name "OS"
                             values "mac"
                         }
-                        axis "ARC"
-                        values "32"
+                        axis {
+                            name "ARC"
+                            values "32"
+                        }
                     }
                 }
                 stages {
